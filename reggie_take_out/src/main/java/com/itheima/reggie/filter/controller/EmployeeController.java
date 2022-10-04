@@ -1,7 +1,8 @@
-package com.itheima.reggie.controller;
+package com.itheima.reggie.filter.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.itheima.reggie.common.BaseContext;
 import com.itheima.reggie.common.R;
 import com.itheima.reggie.entity.Employee;
 import com.itheima.reggie.service.EmployeeService;
@@ -68,25 +69,40 @@ public class EmployeeController {
     public R<String> save(HttpServletRequest request,@RequestBody Employee employee){
         log.info("新增员工，员工信息：{}",employee.toString());
         employee.setPassword(DigestUtils.md5DigestAsHex("483452".getBytes()));
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
-        //获取当前用户登陆的id
-        Long empId = (Long) request.getSession().getAttribute("employee");
-        //设置创始人
-        employee.setCreateUser(empId);
-        //设置更新人
-        employee.setUpdateUser(empId);
+//        employee.setCreateTime(LocalDateTime.now());
+//        employee.setUpdateTime(LocalDateTime.now());
+//        //获取当前用户登陆的id
+//        //设置创始人
+//        employee.setCreateUser(empId);
+//        //设置更新人
+//        employee.setUpdateUser(empId);
+
         employeeServiceimpl.save(employee);
         return R.success("新增成员成功！");
     }
     @GetMapping("/page")
     public R<Page> page(int page,int pageSize,String name){
         Page pages=new Page(page,pageSize);
+        String countId = pages.getCountId();
+        System.out.println(countId);
         LambdaQueryWrapper<Employee> lqw=new LambdaQueryWrapper<>();
         lqw.like(StringUtils.isNotBlank(name),Employee::getName,name);
         lqw.orderByDesc(Employee::getUpdateTime);
         employeeServiceimpl.page(pages,lqw);
         return R.success(pages);
+    }
+    @PutMapping
+    public R<String> update(HttpServletRequest request,@RequestBody Employee employee){
+        Long empId = (Long) request.getSession().getAttribute("employee");
+        employee.setUpdateUser(empId);
+        employee.setUpdateTime(LocalDateTime.now());
+        employeeServiceimpl.updateById(employee);
+        return R.success("修改成功!");
+    }
+    @GetMapping("/{id}")
+    public R<Employee> geyById(@PathVariable Long id){
+        Employee byId = employeeServiceimpl.getById(id);
+        return byId!=null?R.success(byId):R.error("用户不存在");
     }
 }
 
