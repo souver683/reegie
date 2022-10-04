@@ -11,6 +11,5 @@ import org.springframework.stereotype.Service;
  * @description
  * @data 2022/9/30 20 : 28 : 39
  */
-//@Service
 public interface EmployeeService extends IService<Employee> {
 }

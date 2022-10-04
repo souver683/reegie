@@ -25,4 +25,8 @@ public class GlobalHandleException {
         }
         return R.error("未知错误！请重试。");
     }
+    @ExceptionHandler(CustomException.class)
+    public R<String> runtimeException(CustomException cex){
+        return R.error(cex.getMessage());
+    }
 }
