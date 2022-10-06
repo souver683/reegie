@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="803e6d70-6382-424a-ba51-3e919c820970" name="变更" comment="" />
+    <list default="true" id="803e6d70-6382-424a-ba51-3e919c820970" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/ReggieApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/ReggieApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/filter/LoginCheckFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/filter/LoginCheckFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/service/DishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/service/DishService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/service/impl/DishServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/service/impl/DishServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reggie_take_out/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/reggie_take_out/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +25,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -38,6 +49,9 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectId" id="2FUCDprTbYTkO6uusfdAQEKsK9m" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,7 +65,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/reggie_take_out/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/entity" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -60,8 +74,23 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.itheima.reggie.dto" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IDEA专业版\瑞吉外卖\reggie_take_out\src\main\java\com\itheima\reggie\entity" />
+      <recent name="D:\IDEA专业版\瑞吉外卖\reggie_take_out\src\main\java\com\itheima\reggie\dto" />
+      <recent name="D:\IDEA专业版\瑞吉外卖\reggie_take_out\src\main\resources\backend\common" />
+      <recent name="D:\IDEA专业版\瑞吉外卖\reggie_take_out\src\main\java\com\itheima\reggie\common" />
       <recent name="D:\IDEA专业版\瑞吉外卖\reggie_take_out\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IDEA专业版\瑞吉外卖\reggie_take_out\src\main\resources\backend\page\demo" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.itheima.reggie.service" />
+      <recent name="com.itheima.reggie.service.impl" />
+      <recent name="com.itheima.reggie.mapper" />
     </key>
   </component>
   <component name="RunManager">
@@ -96,11 +125,61 @@
       <workItem from="1664607258914" duration="14124000" />
       <workItem from="1664628677360" duration="475000" />
       <workItem from="1664629472579" duration="384000" />
-      <workItem from="1664695248135" duration="5424000" />
+      <workItem from="1664695248135" duration="6131000" />
+      <workItem from="1664708084650" duration="3842000" />
+      <workItem from="1664794210157" duration="9452000" />
+      <workItem from="1664866153338" duration="12550000" />
+      <workItem from="1664965224756" duration="8466000" />
+      <workItem from="1665020027539" duration="6344000" />
+      <workItem from="1665038022637" duration="7985000" />
+      <workItem from="1665056420808" duration="2405000" />
     </task>
+    <task id="LOCAL-00001" summary="mvc框架的消息转换器">
+      <created>1664713548495</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664713548495</updated>
+    </task>
+    <task id="LOCAL-00002" summary="菜品分类">
+      <created>1664866249185</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664866249185</updated>
+    </task>
+    <task id="LOCAL-00003" summary="菜品分类管理">
+      <created>1664874348639</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664874348639</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="mvc框架的消息转换器" />
+    <MESSAGE value="菜品分类" />
+    <MESSAGE value="菜品分类管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="菜品分类管理" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.apache.ibatis.reflection.ReflectionException" package="org.apache.ibatis.reflection" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/reggie_take_out/src/main/java/com/itheima/reggie/service/impl/DishServiceImpl.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
