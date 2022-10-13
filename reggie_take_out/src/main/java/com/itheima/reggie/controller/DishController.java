@@ -6,7 +6,9 @@ import com.itheima.reggie.common.R;
 import com.itheima.reggie.dto.DishDto;
 import com.itheima.reggie.entity.Category;
 import com.itheima.reggie.entity.Dish;
+import com.itheima.reggie.entity.DishFlavor;
 import com.itheima.reggie.service.CategoryService;
+import com.itheima.reggie.service.DishFlavorService;
 import com.itheima.reggie.service.DishService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author light
@@ -32,6 +33,8 @@ public class DishController {
     private DishService dishService;
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private DishFlavorService dishFlavorService;
     @PostMapping
     public R<String> addDish(@RequestBody DishDto dishDto){
             dishService.saveFlavor(dishDto);
@@ -46,6 +49,7 @@ public class DishController {
         lqw.orderByDesc(Dish::getUpdateTime);
         dishService.page(pageInfo,lqw);
         BeanUtils.copyProperties(pageInfo,dtoPage,"records");
+
         List<Dish> records = pageInfo.getRecords();
         List<DishDto> list=new ArrayList<>();
         records.forEach((item)->{
@@ -86,13 +90,66 @@ public class DishController {
             dishService.updateDish(dishDto);
         return R.success("修改成功！");
     }
-    @GetMapping("/list")
-    public R<List<Dish>> selectDish(Dish dish){
-        LambdaQueryWrapper<Dish> lqw=new LambdaQueryWrapper<>();
-        lqw.eq(dish.getCategoryId()!=null,Dish::getCategoryId,dish.getCategoryId());
-        lqw.orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
-        List<Dish> list = dishService.list(lqw);
-        return R.success(list);
-    }
+//    @GetMapping("/list")
+//    public R<List<Dish>> selectDish(Dish dish){
+//        LambdaQueryWrapper<Dish> lqw=new LambdaQueryWrapper<>();
+//        lqw.eq(dish.getCategoryId()!=null,Dish::getCategoryId,dish.getCategoryId()).eq(Dish::getStatus,1);
+//        lqw.eq(Dish::getStatus,1);
+//        lqw.orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
+//
+//        List<Dish> list = dishService.list(lqw);
+//        return R.success(list);
+//    }
+@GetMapping("/list")
+public R<List<DishDto>> selectDish(Dish dish){
+    LambdaQueryWrapper<Dish> lqw=new LambdaQueryWrapper<>();
+    log.info("dish------>{}",dish);
+    lqw.eq(dish.getCategoryId()!=null,Dish::getCategoryId,dish.getCategoryId()).eq(Dish::getStatus,1);
+    lqw.eq(Dish::getStatus,1);
+    lqw.orderByAsc(Dish::getSort).orderByDesc(Dish::getUpdateTime);
+    List<Dish> list = dishService.list(lqw);
+    List<DishDto> listDto=new ArrayList<>();
+    list.forEach((item)->{
+        DishDto dishDto=new DishDto();
+        BeanUtils.copyProperties(item,dishDto);
+        Long categoryId = item.getCategoryId();
+        Category category = categoryService.getById(categoryId);
+        if(category!=null){
+            String name = category.getName();
+            dishDto.setCategoryName(name);
+        }
+        Long dishId = item.getId();
+        LambdaQueryWrapper<DishFlavor> lqwflavor=new LambdaQueryWrapper<>();
+        lqwflavor.eq(DishFlavor::getDishId,dishId);
+        List<DishFlavor> dishFlavors = dishFlavorService.list(lqwflavor);
+        dishDto.setFlavors(dishFlavors);
+        listDto.add(dishDto);
+    });
+    return R.success(listDto);
 }
 
+    @PostMapping("/status/{sta}")
+    public R<String> status(@PathVariable int sta ,@RequestParam List<Long> ids) {
+
+        List<Dish> list = dishService.listByIds(ids);
+        for (Dish dish : list) {
+            if(dish.getStatus()==sta){
+                return R.error("当前状态不可改变");
+            }
+            else{
+                dish.setStatus(sta);
+                dishService.updateById(dish);
+            }
+
+        }
+        return R.success("修改成功！");
+    }
+    @DeleteMapping
+    public R<String> delete(Long[] ids){
+        for (Long id : ids) {
+           dishService.removeById(id);
+        }
+        return R.success("删除成功！");
+    }
+
+}
