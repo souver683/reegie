@@ -9,6 +9,11 @@ spring:
       url: jdbc:mysql://localhost:3306/reggie?serverTime=UTC
       username: root
       password: 483452
+  redis:
+    host: localhost
+    port: 6379
+   # password: 483452
+    database: 0
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
@@ -18,3 +23,4 @@ mybatis-plus:
       id-type: assign_id
 Origin:
   basePath: D:\imgs\
+

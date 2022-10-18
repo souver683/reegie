@@ -7,6 +7,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.util.*;
+
 /**
  * @author light
  * @version 1.0
@@ -22,5 +24,7 @@ public class ReggieApplication {
     public static void main(String[] args) {
         SpringApplication.run(ReggieApplication.class,args);
         log.info("SprinBoot项目启动~~~");
+        Queue<Integer> queue=new LinkedList<>();
+        queue.isEmpty();
     }
 }

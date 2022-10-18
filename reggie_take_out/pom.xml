@@ -12,9 +12,9 @@
     <groupId>com.itheima</groupId>
     <artifactId>reggie_take_out</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+        <properties>
+            <java.version>1.8</java.version>
+        </properties>
 
 <dependencies>
     <dependency>
@@ -62,6 +62,10 @@
         <groupId>com.aliyun</groupId>
         <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
         <version>2.2.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis</artifactId>
     </dependency>
 </dependencies>
     <build>
